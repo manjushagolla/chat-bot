@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  background-color: #0d1117;
+  color: #fff;
+}
+
+/* Left half: 3D */
+.spline-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d1117;
+}
+
+spline-viewer {
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+/* Right half: Chat */
+.chat-container {
+  flex: 1;
+  max-width: 50vw;
+  background-color: #161b22;
+  border-left: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  background: #1f2937;
+  border-bottom: 1px solid #30363d;
+}
+
+.chat-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chat-box {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 0.8rem 0;
+  padding: 0.8rem 1rem;
+  border-radius: 16px;
+  max-width: 80%;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.user {
+  background-color: #238636;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot {
+  background-color: #30363d;
+  align-self: flex-start;
+}
+
+.typing {
+  font-style: italic;
+  opacity: 0.7;
+  animation: blink 1s infinite;
+}
+
+form {
+  display: flex;
+  border-top: 1px solid #30363d;
+  padding: 0.8rem;
+  background: #161b22;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #0d1117;
+  color: white;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #238636;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+spline-viewer::part(branding) {
+  display: none !important;
+}
